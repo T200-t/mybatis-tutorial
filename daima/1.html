@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo">点击获取当前坐标：</p>
+    <button onclick="getLocation()">点我</button>
+    <script>
+        var x=document.getElementById("demo");
+        function getLocation()
+        {
+            if (navigator.geolocation)
+                {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                }
+            else
+                {
+                    x.innerHTML="获取不到信息";
+                }    
+        }
+        function showPosition(position)
+        {   
+            x.innerHTML="纬度：" +position.coords.latitude + 
+            "<br>经度：" + position.coords.longitude;
+
+        }
+    </script>
+</body>
+</html>
